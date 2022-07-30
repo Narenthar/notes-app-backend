@@ -3,8 +3,10 @@ const notes = require("./data/notes");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./connection");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
+app.use(express.json());
 dotenv.config();
 connectDB();
 
@@ -18,11 +20,8 @@ app.get("/api/notes", (req, res) => {
   res.json(notes);
 });
 
-app.get("/api/notes/:id", (req, res) => {
-  const note = notes.find((n) => n._id === req.params.id);
+app.use("/api/users", userRoutes);
 
-  res.send(note);
-});
 const PORT = process.env.PORT || 5002;
 
 app.listen(PORT, console.log(`server started at ${PORT}`));
