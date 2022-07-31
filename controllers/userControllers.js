@@ -45,7 +45,8 @@ const authUser = asyncHandler(async function (req, res) {
       pc: user.pic,
     });
   } else {
-    res.status(400);
+    res.status(401);
+    throw new Error("Invalid email or password");
   }
 });
 
