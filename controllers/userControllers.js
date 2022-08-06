@@ -44,7 +44,7 @@ const authUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      pc: user.pic,
+      pic: user.pic,
       token: generateToken(user._id),
     });
   } else {
