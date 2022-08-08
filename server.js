@@ -1,5 +1,4 @@
 const express = require("express");
-// const notes = require("./data/notes");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./connection");
@@ -17,10 +16,6 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("API is running");
 });
-
-// app.get("/api/notes", (req, res) => {
-//   res.json(notes);
-// });
 
 app.use("/api/users", userRoutes);
 app.use("/api/notes", noteRoutes);
